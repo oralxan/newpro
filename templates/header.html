@@ -1,0 +1,23 @@
+<div class="header">
+    <a href="{% url 'book_list' %}">home</a>
+    <!-- <a href="{% url 'book_list' %}">home</a> -->
+    
+    <div class="dates">
+        {% if user.is_authenticated %}
+           <a >{{ user.username }}</a>
+        {% else %} 
+           <a href=""> Login</a>
+           <a href=""> Sign up</a>
+        {% endif %}
+</div>
+
+</div>
+<style>
+    .header .dates{
+        float: right;
+    }
+    .header{
+        margin-bottom: 20px;
+    }
+
+</style>
