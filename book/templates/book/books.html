@@ -7,14 +7,26 @@
 
 {% block style %}
     <style>
-
-        img {
+    body{
+        background-color: rgb(163, 163, 250);
+    }
+    img {
             max-width: 70vh;
+            padding: 10px;
         }
     </style>
 {% endblock style %}
 
 {% block content %}
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+    <div class="col-lg-6 px-0">
+      <h1 style="text-align: right; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">🧁This site is for cookies🧁</h1 >
+      <h3 style="text-align: right; font-family:Showcard Gothic" >On this site you can find cookies</h3>
+    </div>
+  </div>
+
+
+  
 
     {% for book in books %}
         <div class="book">
@@ -26,5 +38,6 @@
             <h3>{{ book.price }}</h3>
         </div>
     {% endfor %}
-
+    <!-- js -->
+<script></script>
 {% endblock content %}

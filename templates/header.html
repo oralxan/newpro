@@ -1,20 +1,31 @@
+<div></div>
 <div class="header">
-    <a href="{% url 'book_list' %}">home</a>
-    <!-- <a href="{% url 'book_list' %}">home</a> -->
+    <h6><a href="{% url 'book_list' %}">home<i class="fa-solid fa-house" style="color: #b4b2ac;"></i></a></h6>
+    <h6> <a href="{% url 'book_create' %}">create <i class="fa-solid fa-plus" style="color: #b4b2ac;"></i></a></h6>
+   
+ 
+
+
+
+
+
+
     
-    <div class="dates">
         {% if user.is_authenticated %}
-           <a >{{ user.username }}</a>
+           <a class="datas" href="{% url 'logout' %}">Log out</a>
+           <a class="datas">{{ user.username }}</a>
         {% else %} 
-           <a href=""> Login</a>
-           <a href=""> Sign up</a>
+           <a class="datas" href="{% url 'login' %}"> Login</a>
+           <a class ="datas" href="{% url 'signu' %}"> Sign up</a>
         {% endif %}
-</div>
+
 
 </div>
 <style>
-    .header .dates{
+    .header .datas{
         float: right;
+        padding: 0px 10px;
+        margin: 10px;
     }
     .header{
         margin-bottom: 20px;

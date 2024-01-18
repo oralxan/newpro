@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Books
+{% endblock title %}
+
+{% block style %}
+
+    <style>
+        button {
+ width: 150px;
+ height: 50px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ background: red;
+ border: none;
+ border-radius: 5px;
+ box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+ background: #e62222;
+}
+
+button, button span {
+ transition: 200ms;
+}
+
+button .text {
+ transform: translateX(35px);
+ color: white;
+ font-weight: bold;
+}
+
+button .icon {
+ position: absolute;
+ border-left: 1px solid #c41b1b;
+ transform: translateX(110px);
+ height: 40px;
+ width: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+button svg {
+ width: 15px;
+ fill: #eee;
+}
+
+button:hover {
+ background: #ff3636;
+}
+
+button:hover .text {
+ color: transparent;
+}
+
+button:hover .icon {
+ width: 150px;
+ border-left: none;
+ transform: translateX(0);
+}
+
+button:focus {
+ outline: none;
+}
+
+button:active .icon svg {
+ transform: scale(0.8);
+}
+        body{
+            background-color: rgb(223, 198, 246);
+            color: black;
+            text-align: center;
+        }
+    
+        img {
+            width: 70vh;
+        }
+       
+    </style>
+
+{% endblock style %}
+
+{% block content %}
+
+
+    <img src="{{ book.cover.url }}" alt="" style="border-radius: 10px;">
+
+    <h1>{{ book.name }}</h1>
+    <h2>{{ book.description }}</h2>
+    <h2>Author: {{ book.author }}</h2>
+    <h2>Price {{ book.price }}$</h2>
+    
+    
+    {% if  request.user == book.author %}
+    <div class="updel">
+       <h1 style="font-family: Cooper Black"><a href="{% url 'book_update' book.pk %}">UPDETE<i class="fa-solid fa-pen-to-square" style="color: #B197FC;"></i></a></h1>
+       <h1 style="font-family: Cooper Black;"><a href="{% url 'book_delete' book.pk %}">DELETE<i class="fa-solid fa-delete-left" style="color: #B197FC;"></i></a></h1>
+    </div>
+    {% endif %}
+{% endblock content %}
